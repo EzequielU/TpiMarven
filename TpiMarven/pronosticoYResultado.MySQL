@@ -3,7 +3,7 @@ CREATE DATABASE PronosticosYResultados;
 USE PronosticosYResultados;
 
 CREATE TABLE tabla_partidos (
-  id INT AUTO_INCREMENT PRIMARY KEY,
+  idPartido INT AUTO_INCREMENT PRIMARY KEY,
   participante VARCHAR(255),
   equipo1 VARCHAR(255),
   gana1 CHAR(1),
@@ -12,7 +12,7 @@ CREATE TABLE tabla_partidos (
   equipo2 VARCHAR(255)
 );
 
-id INT INSERT INTO tabla_partidos (participante, equipo1, gana1, empate, gana2, equipo2)
+INSERT INTO tabla_partidos (participante, equipo1, gana1, empate, gana2, equipo2)
 VALUES
   ('Mariana', 'Argentina', 'x', '', '', 'Arabia Saudita'),
   ('Mariana', 'Polonia', '', 'x', '', 'Mexico'),
@@ -22,13 +22,26 @@ VALUES
   ('Pedro', 'Polonia', '', '', 'x', 'Mexico'),
   ('Pedro', 'Argentina', 'x', '', '', 'Mexico'),
   ('Pedro', 'Arabia Saudita', '', 'x', '', 'Polonia');
-  
-  SELECT participante, equipo1, gana1, empate, gana2, equipo2 FROM tabla_partidos;
+
+-- Agregé ID a los 2 participantes
+
+UPDATE tabla_partidos
+SET idPartido = 1
+WHERE participante = 'Mariana';
+
+UPDATE tabla_partidos
+SET idPartido = 5
+WHERE participante = 'Pedro';
+
+-- Acorté el SELECT
+
+SELECT * FROM tabla_partidos;
+
   
   USE PronosticosYResultados;
   
   CREATE TABLE tabla_goles (
-  id INT1 AUTO_INCREMENT PRIMARY KEY,
+  idGoles INT1 AUTO_INCREMENT PRIMARY KEY,
   ronda INT,
   equipo1 VARCHAR(255),
   cant_goles1 INT,
@@ -44,4 +57,4 @@ VALUES
   (1, 'Arabia Saudita', 0, 2, 'Polonia');
 
 
-SELECT ronda, equipo1, cant_goles1, cant_goles2, equipo2 FROM tabla_goles;
+SELECT * FROM tabla_goles;
