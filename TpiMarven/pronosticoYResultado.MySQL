@@ -1,0 +1,47 @@
+CREATE DATABASE PronosticosYResultados;
+
+USE PronosticosYResultados;
+
+CREATE TABLE tabla_partidos (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  participante VARCHAR(255),
+  equipo1 VARCHAR(255),
+  gana1 CHAR(1),
+  empate CHAR(1),
+  gana2 CHAR(1),
+  equipo2 VARCHAR(255)
+);
+
+id INT INSERT INTO tabla_partidos (participante, equipo1, gana1, empate, gana2, equipo2)
+VALUES
+  ('Mariana', 'Argentina', 'x', '', '', 'Arabia Saudita'),
+  ('Mariana', 'Polonia', '', 'x', '', 'Mexico'),
+  ('Mariana', 'Argentina', 'x', '', '', 'Mexico'),
+  ('Mariana', 'Arabia Saudita', '', '', 'x', 'Polonia'),
+  ('Pedro', 'Argentina', 'x', '', '', 'Arabia Saudita'),
+  ('Pedro', 'Polonia', '', '', 'x', 'Mexico'),
+  ('Pedro', 'Argentina', 'x', '', '', 'Mexico'),
+  ('Pedro', 'Arabia Saudita', '', 'x', '', 'Polonia');
+  
+  SELECT participante, equipo1, gana1, empate, gana2, equipo2 FROM tabla_partidos;
+  
+  USE PronosticosYResultados;
+  
+  CREATE TABLE tabla_goles (
+  id INT1 AUTO_INCREMENT PRIMARY KEY,
+  ronda INT,
+  equipo1 VARCHAR(255),
+  cant_goles1 INT,
+  cant_goles2 INT,
+  equipo2 VARCHAR(255)
+);
+
+INSERT INTO tabla_goles (ronda, equipo1, cant_goles1, cant_goles2, equipo2)
+VALUES
+  (1, 'Argentina', 1, 2, 'Arabia Saudita'),
+  (1, 'Polonia', 0, 0, 'Mexico'),
+  (1, 'Argentina', 2, 0, 'Mexico'),
+  (1, 'Arabia Saudita', 0, 2, 'Polonia');
+
+
+SELECT ronda, equipo1, cant_goles1, cant_goles2, equipo2 FROM tabla_goles;
